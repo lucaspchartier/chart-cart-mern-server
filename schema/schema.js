@@ -36,3 +36,23 @@ const CommentType = new GraphQLObjectType({
         }
     })
 });
+
+const RootQuery = new GraphQLObjectType({
+    name: "RootQueryType",
+    fields: {
+        post: {
+            type: PostType,
+            args: { id: { type: GraphQLID } },
+            resolve(parent, args) {
+                return Post.findById(args.id);
+            }
+        },
+        comment: {
+            type: CommentType,
+            args: { id: { type: GraphQLID } },
+            resolve(parent, args) {
+                return Comment.findById(args.id);
+            }
+        }
+    }
+});
