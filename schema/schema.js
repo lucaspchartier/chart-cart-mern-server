@@ -22,3 +22,11 @@ const PostType = new GraphQLObjectType({
         }
     })
 });
+
+const CommentType = new GraphQLObjectType({
+    name: "Comment",
+    fields: () => ({
+        id: { type: GraphQLID },
+        text: { type: GraphQLString }
+    })
+});
