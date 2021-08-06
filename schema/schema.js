@@ -69,3 +69,24 @@ const RootQuery = new GraphQLObjectType({
         }
     }
 });
+
+const Mutation = new GraphQLObject({
+    name: "Mutation",
+    fields: {
+        addPost: {
+            type: PostType,
+            args: {
+                text: { type: new GraphQLNonNull(GraphQLString) },
+                comment: { type: new GraphQLNonNull(GraphQLString) }
+            },
+            resolve(parent, args) {
+                let post = new Post({
+                    text: args.text,
+                    comment: args.comment
+                });
+
+                return post.save();
+            }
+        }
+    }
+});
