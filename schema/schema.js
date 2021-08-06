@@ -87,6 +87,21 @@ const Mutation = new GraphQLObject({
 
                 return post.save();
             }
+        },
+        addCommet: {
+            type: CommentType,
+            args: {
+                postId: { type: new GraphQLNonNull(GraphQLID) },
+                text: { type: new GraphQLNonNull(GraphQLString) }
+            },
+            resolve(parent, args) {
+                let comment = new Comment({
+                    postId: args.postId,
+                    text: args.text
+                });
+
+                return comment.save();
+            }
         }
     }
 });
