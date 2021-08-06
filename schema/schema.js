@@ -71,7 +71,7 @@ const RootQuery = new GraphQLObjectType({
     }
 });
 
-const Mutation = new GraphQLObject({
+const Mutation = new GraphQLObjectType({
     name: "Mutation",
     fields: {
         addPost: {
