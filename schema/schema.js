@@ -7,7 +7,8 @@ const {
     GraphQLString,
     GraphQLID,
     GraphQLList,
-    GraphQLNonNull
+    GraphQLNonNull,
+    GraphQLSchema
 } = graphql;
 
 const PostType = new GraphQLObjectType({
