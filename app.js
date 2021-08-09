@@ -5,9 +5,9 @@ const cors = require("cors");
 const { graphqlHTTP } = require("express-graphql");
 const schema = require("./schema/schema.js");
 
+dotenv.config();
 const app = express();
 
-dotenv.config();
 app.use(cors());
 
 mongoose.connect(process.env.DB_URI, {
