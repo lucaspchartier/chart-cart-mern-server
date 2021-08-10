@@ -25,5 +25,5 @@ app.use("/graphql", graphqlHTTP({
 }));
 
 app.listen(process.env.PORT || 4000, () => {
-  console.log("Now listening to requests on port 4000");
+  console.log("Express server listening in %s environment", app.settings.env);
 });
