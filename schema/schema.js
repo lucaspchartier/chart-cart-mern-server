@@ -92,8 +92,8 @@ const Mutation = new GraphQLObjectType({
         addComment: {
             type: CommentType,
             args: {
-                postId: { type: new GraphQLNonNull(GraphQLID) },
-                text: { type: new GraphQLNonNull(GraphQLString) }
+                text: { type: new GraphQLNonNull(GraphQLString) },
+                postId: { type: new GraphQLNonNull(GraphQLID) }
             },
             resolve(parent, args) {
                 let comment = new Comment({
