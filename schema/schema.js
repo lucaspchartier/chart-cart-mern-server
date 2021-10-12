@@ -97,8 +97,8 @@ const Mutation = new GraphQLObjectType({
             },
             resolve(parent, args) {
                 let comment = new Comment({
-                    postId: args.postId,
-                    text: args.text
+                    text: args.text,
+                    postId: args.postId
                 });
 
                 return comment.save();
