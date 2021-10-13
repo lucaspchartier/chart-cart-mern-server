@@ -17,7 +17,7 @@ const PostType = new GraphQLObjectType({
         id: { type: GraphQLID },
         text: { type: GraphQLString },
         comments: {
-            type: new GraphQLList(PostType),
+            type: new GraphQLList(CommentType),
             resolve(parent, args) {
                 return Comment.find({ postId: parent.id });
             }
@@ -77,13 +77,11 @@ const Mutation = new GraphQLObjectType({
         addPost: {
             type: PostType,
             args: {
-                text: { type: new GraphQLNonNull(GraphQLString) },
-                comment: { type: new GraphQLNonNull(GraphQLString) }
+                text: { type: new GraphQLNonNull(GraphQLString) }
             },
             resolve(parent, args) {
                 let post = new Post({
-                    text: args.text,
-                    comment: args.comment
+                    text: args.text
                 });
 
                 return post.save();
