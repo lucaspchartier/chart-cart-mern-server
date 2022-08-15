@@ -88,7 +88,7 @@ const Mutation = new GraphQLObjectType({
             }
         },
         deletePost: {
-            
+            type: PostType,
         },
         addComment: {
             type: CommentType,
