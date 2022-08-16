@@ -91,6 +91,9 @@ const Mutation = new GraphQLObjectType({
             type: PostType,
             args: {
                 id: { type: new GraphQLNonNull(GraphQLID) }
+            },
+            resolve(parent, args) {
+                return Post.findByIdAndDelete(args.id);
             }
         },
         addComment: {
